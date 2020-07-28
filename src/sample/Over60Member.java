@@ -2,8 +2,8 @@ package sample;
 
 public class Over60Member extends DefaultMember{
 
-    public Over60Member(int mem_no, String name, int age){
-        super(mem_no,name);
+    public Over60Member(int mem_no, String name, int age,String memType,String gender){
+        super(mem_no,name,memType,gender);
         this.age = age;
     }
 

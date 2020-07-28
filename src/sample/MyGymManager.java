@@ -77,8 +77,10 @@ public class MyGymManager extends Application implements GymManager {
 
                 System.out.print("Enter the Name : ");
                 String name = strInput.nextLine();
+                System.out.print("Enter the Gender : ");
+                String gender = intInput.nextLine();
 
-                Database.DefaultMemberCreate(idVal, name);
+                Database.DefaultMemberCreate(idVal, name,gender);
 
 
             } else if (optionCat == 2) {
@@ -91,15 +93,19 @@ public class MyGymManager extends Application implements GymManager {
                 System.out.print("Enter the Name : ");
                 String name = strInput.nextLine();
 
+                System.out.print("Enter the Gender : ");
+                String gender = intInput.nextLine();
+
                 System.out.print("Enter the School : ");
                 String school = strInput.nextLine();
 
-                Database.StudentMemberCreate(idVal, name, school);
+                Database.StudentMemberCreate(idVal, name, school,gender);
 
 
             } else if (optionCat == 3) {
                 Scanner strInput = new Scanner(System.in);
                 Scanner intInput = new Scanner(System.in);
+                Scanner genderInput = new Scanner(System.in);
 
                 System.out.println("Over60 Member Registration");
                 System.out.println("-------------------------------");
@@ -108,10 +114,14 @@ public class MyGymManager extends Application implements GymManager {
                 System.out.print("Enter the Name : ");
                 String name = strInput.nextLine();
 
+                System.out.print("Enter the Gender : ");
+                String gender = genderInput.nextLine();
+
                 System.out.print("Enter the Age : ");
                 int age = intInput.nextInt();
 
-                Database.Over60MemberCreate(idVal, name, age);
+
+                Database.Over60MemberCreate(idVal, name, age,gender);
 
             }
         } else if (Database.getCount() == 100) {
@@ -128,7 +138,7 @@ public class MyGymManager extends Application implements GymManager {
         System.out.print("Enter the Name of the member you want to delete : ");
         String name = strInput.nextLine();
         Database.deleteUser(name);
-        System.out.println(name + " is Deleted from the Registration List");
+//        System.out.println(name + " is Deleted from the Registration List");
     }
 
     public void printAll() {
@@ -167,6 +177,7 @@ public class MyGymManager extends Application implements GymManager {
 
 
 }
+
 
 
 

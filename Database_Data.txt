@@ -1,15 +1,5 @@
 Exported Data from the Database
 -------------------------------------
-Nadil
-Nisal
-Chandira
-Gugsi
-Jahzan
-Luchitha
-Induwara
-Andradi
-testingqwerty
-Gugsoiiiiiiiioh
-testing123
-testing 234
-Jahzan
+Chandira       Default Member
+Nisal       Student Member
+Gugsi       Over 60 Member

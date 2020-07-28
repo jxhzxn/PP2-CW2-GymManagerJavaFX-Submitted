@@ -18,11 +18,12 @@ public class FileSave {
             FileWriter fileWriter = new FileWriter(file);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
-            ArrayList<String> readArray = sample.Database.readAll();
+            ArrayList<String> readName = sample.Database.readName();
+            ArrayList<String> readMemType = sample.Database.readMemType();
             printWriter.println("Exported Data from the Database");
             printWriter.println("-------------------------------------");
-            for(int count=0; count<=readArray.size()-1; count++){
-                printWriter.println(readArray.get(count));
+            for(int count=0; count<=readName.size()-1; count++){
+                printWriter.println(readName.get(count)+"\t\t"+readMemType.get(count));
             }
 
             printWriter.close();

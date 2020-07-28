@@ -3,12 +3,16 @@ package sample;
 public class DefaultMember {
     private int mem_no;
     private String name;
+    private String memType;
+    private String gender;
     private int counter;
 
-    public DefaultMember(int mem_no, String name){
+    public DefaultMember(int mem_no, String name,String memType,String gender){
         super();
         this.mem_no = mem_no;
         this.name = name;
+        this.memType = memType;
+        this.gender = gender;
     }
 
 
@@ -26,6 +30,14 @@ public class DefaultMember {
 
     public String getName(){
         return name;
+    }
+
+    public String getMemType(){
+        return memType;
+    }
+
+    public String getGender(){
+        return gender;
     }
 
 
