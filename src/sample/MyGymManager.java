@@ -1,13 +1,19 @@
 package sample;
 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
-public class MyGymManager implements GymManager {
+public class MyGymManager extends Application implements GymManager {
 
-    public int menuOption(){
+    public int menuOption() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println(
@@ -24,35 +30,35 @@ public class MyGymManager implements GymManager {
         return option;
     }
 
-    public void functionChoose(int option){
+    public void functionChoose(int option) throws FileNotFoundException {
         MyGymManager myGymManager = new MyGymManager();
 
-        if(option==1){
+        if (option == 1) {
             myGymManager.addMember();
-        }else if(option==2){
+        } else if (option == 2) {
             myGymManager.deleteMember();
-        }else if(option==3){
+        } else if (option == 3) {
             myGymManager.printAll();
-        }else if(option==4){
+        } else if (option == 4) {
             myGymManager.sorting();
-        }else if(option==5){
-            try{
+        } else if (option == 5) {
+            try {
                 myGymManager.fileSave();
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else if(option==6){
+        } else if (option == 6) {
             myGymManager.openGUI();
         }
     }
 
-    public void addMember(){
+    public void addMember() {
         MyGymManager myGymManager = new MyGymManager();
         Scanner sc = new Scanner(System.in);
         int lastID = parseInt(Database.getLastID());
-        int idVal = lastID+1;
+        int idVal = lastID + 1;
 
-        if(Database.getCount()<100) {
+        if (Database.getCount() < 100) {
             System.out.println(" Default Member      :   1 \n " +
                     "Student Member      :   2 \n " +
                     "Over 60 Member      :   3 \n"
@@ -108,40 +114,40 @@ public class MyGymManager implements GymManager {
                 Database.Over60MemberCreate(idVal, name, age);
 
             }
-        }else if(Database.getCount()==100){
+        } else if (Database.getCount() == 100) {
             System.out.println("Registration limit of 100 is reached :(");
         }
 //        myGymManager.menuOption();
     }
 
 
-    public void deleteMember(){
+    public void deleteMember() {
         Scanner strInput = new Scanner(System.in);
         System.out.println("Member Deletion");
         System.out.println("-------------------------------");
         System.out.print("Enter the Name of the member you want to delete : ");
         String name = strInput.nextLine();
         Database.deleteUser(name);
-        System.out.println(name+" is Deleted from the Registration List");
+        System.out.println(name + " is Deleted from the Registration List");
     }
 
-    public void printAll(){
+    public void printAll() {
         System.out.println("Names of all Members");
         System.out.println("-------------------------------");
         Database.printAll();
     }
 
-    public void sorting(){
+    public void sorting() {
         Scanner intInput = new Scanner(System.in);
         System.out.println(" Sort Name in Ascending     : 1\n " + "Sort Name in Descending    : 2");
         System.out.println("");
         System.out.print("Choose the Sorting method : ");
         int sortOption = intInput.nextInt();
 
-        if(sortOption==1){
-            Database.sorting("name",1);
-        }else if(sortOption==2){
-            Database.sorting("name",-1);
+        if (sortOption == 1) {
+            Database.sorting("name", 1);
+        } else if (sortOption == 2) {
+            Database.sorting("name", -1);
         }
     }
 
@@ -150,22 +156,23 @@ public class MyGymManager implements GymManager {
         System.out.println("file saved successfully");
     }
 
-    public void openGUI(){
-        System.out.println("GUI will be opened");
+    public void openGUI() {
+        launch();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        GraphicalInterface.display();
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
