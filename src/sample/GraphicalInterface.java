@@ -23,21 +23,24 @@ public class GraphicalInterface{
         TableView<DefaultMember> table;
 
         //column1
-        TableColumn<DefaultMember, String> nameColumn = new TableColumn<>("prixeqrver");
+        TableColumn<DefaultMember, String> nameColumn = new TableColumn<>("name");
         nameColumn.setMinWidth(200);
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("test"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
 
 
 
         //column2
-        TableColumn<DefaultMember,String> priceColumn = new TableColumn<>("nameervev");
+        TableColumn<DefaultMember,String> priceColumn = new TableColumn<>("price");
         priceColumn.setMinWidth(200);
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         table = new TableView<>();
         table.setItems(getMember());
         table.getColumns().addAll(priceColumn,nameColumn);
+
+        table.setLayoutX(50);
+        table.setLayoutY(50);
 
 
         Button btn = new Button("testing");
