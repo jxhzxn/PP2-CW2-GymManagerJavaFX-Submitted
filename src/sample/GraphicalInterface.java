@@ -22,25 +22,48 @@ public class GraphicalInterface{
 
         TableView<DefaultMember> table;
 
-        //column1
-        TableColumn<DefaultMember, String> nameColumn = new TableColumn<>("name");
-        nameColumn.setMinWidth(200);
+//        //idColumn
+//        TableColumn<DefaultMember, String> idColumn = new TableColumn<>("ID");
+//        idColumn.setMinWidth(50);
+//        idColumn.setCellValueFactory(new PropertyValueFactory<>("mem_no"));
+
+        //nameColumn
+        TableColumn<DefaultMember,String> nameColumn = new TableColumn<>("Name");
+        nameColumn.setMinWidth(150);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
+        //genderColumn
+        TableColumn<DefaultMember,String> genderColumn = new TableColumn<>("Gender");
+        genderColumn.setMinWidth(50);
+        genderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
+//        //ageColumn
+//        TableColumn<DefaultMember,String> ageColumn = new TableColumn<>("Age");
+//        ageColumn.setMinWidth(50);
+//        ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
+//
+//        //schoolColumn
+//        TableColumn<DefaultMember,String> schoolColumn = new TableColumn<>("School");
+//        schoolColumn.setMinWidth(50);
+//        schoolColumn.setCellValueFactory(new PropertyValueFactory<>("schoolName"));
 
+        //cityColumn
+        TableColumn<DefaultMember,String> cityColumn = new TableColumn<>("City");
+        cityColumn.setMinWidth(50);
+        cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
 
-        //column2
-        TableColumn<DefaultMember,String> priceColumn = new TableColumn<>("price");
-        priceColumn.setMinWidth(200);
-        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        //memTypeColumn
+        TableColumn<DefaultMember,String> memTypeColumn = new TableColumn<>("Member Type");
+        memTypeColumn.setMinWidth(50);
+        memTypeColumn.setCellValueFactory(new PropertyValueFactory<>("memType"));
 
         table = new TableView<>();
         table.setItems(getMember());
-        table.getColumns().addAll(priceColumn,nameColumn);
+        table.getColumns().addAll(nameColumn,genderColumn,cityColumn,memTypeColumn);
 
-        table.setLayoutX(50);
+        table.setLayoutX(150);
         table.setLayoutY(50);
+        table.setPrefWidth(470);
 
 
         Button btn = new Button("testing");
@@ -70,11 +93,15 @@ public class GraphicalInterface{
 
     public static ObservableList<DefaultMember> getMember(){
         ObservableList<DefaultMember> defaultMembers = FXCollections.observableArrayList();
-        ArrayList<String> names = Database.readName();
+        ArrayList<String> name = Database.readCustom("name");
+        ArrayList<String> id = Database.readCustom("_id");
+        ArrayList<String> memType = Database.readCustom("mem_type");
+        ArrayList<String> gender = Database.readCustom("gender");
+        ArrayList<String> city = Database.readCustom("city");
 
-
-        for(int count=0; count<=names.size()-1; count++){
-            defaultMembers.add(new DefaultMember(34,names.get(count),"erf","rf","rfrf"));
+//        Integer.parseInt(id.get(count))
+        for(int count=0; count<=name.size()-1; count++){
+            defaultMembers.add(new DefaultMember(Integer.parseInt(id.get(count)),name.get(count),memType.get(count),gender.get(count),city.get(count)));
         }
 
         return defaultMembers;

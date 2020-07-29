@@ -181,6 +181,18 @@ public class Database {
         return memTypeArray;
     }
 
+    public static ArrayList<String> readCustom(String key){
+        DB db = sample.Database.Dbconfig();
+        DBCollection col = db.getCollection("users");
+        DBCursor cursor = col.find();
+        ArrayList<String> nameArray = new ArrayList<>();
+        while (cursor.hasNext()){
+            nameArray.add(cursor.next().get(key).toString());
+        }
+        return nameArray;
+    }
+
+
 
 
 
