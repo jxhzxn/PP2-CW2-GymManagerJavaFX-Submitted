@@ -181,6 +181,12 @@ public class Database {
         return memTypeArray;
     }
 
+
+
+
+
+
+
     public static ArrayList<String> readCustom(String key){
         DB db = sample.Database.Dbconfig();
         DBCollection col = db.getCollection("users");
@@ -191,6 +197,36 @@ public class Database {
         }
         return nameArray;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    public static DBObject readNameTest(String name){
+        DB db = Database.Dbconfig();
+        DBCollection col = db.getCollection("users");
+        DBObject query = BasicDBObjectBuilder.start().add("name", name).get();
+        return query;
+    }
+
+
+
+    public static String nameSearch(DBObject test, String key){
+        DB db = Database.Dbconfig();
+        DBCollection col = db.getCollection("users");
+        DBCursor cursor = col.find(test);
+        return cursor.next().get(key).toString();
+    }
+
+
+
 
 
 

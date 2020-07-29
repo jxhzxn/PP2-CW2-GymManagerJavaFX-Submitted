@@ -1,0 +1,19 @@
+#column{
+    -fx-font-size: 18px;
+}
+
+#table{
+    -fx-border-width: 4px;
+    -fx-border-color: black;
+}
+
+#searchField{
+    -fx-font-size: 18px;
+}
+
+#searchBtn{
+    -fx-background-color: darkorange;
+    -fx-font-family: "Roboto Light";
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+}
