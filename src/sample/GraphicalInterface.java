@@ -1,17 +1,18 @@
 package sample;
 
-import javafx.application.Application;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class GraphicalInterface{
     public static void display(){
@@ -19,12 +20,62 @@ public class GraphicalInterface{
         Scene keyBoardScene;
         window.setTitle("Gym Manager GUI");
 
+        TableView<DefaultMember> table;
+
+        //column1
+        TableColumn<DefaultMember, String> nameColumn = new TableColumn<>("prixeqrver");
+        nameColumn.setMinWidth(200);
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("test"));
+
+
+
+
+        //column2
+        TableColumn<DefaultMember,String> priceColumn = new TableColumn<>("nameervev");
+        priceColumn.setMinWidth(200);
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        table = new TableView<>();
+        table.setItems(getMember());
+        table.getColumns().addAll(priceColumn,nameColumn);
+
+
+        Button btn = new Button("testing");
+        btn.setLayoutX(100);
+        btn.setLayoutY(100);
+
+        btn.setOnAction(event -> {
+            window.close();
+            MyGymManager myGymManager = new MyGymManager();
+            try {
+                myGymManager.functionChoose(myGymManager.menuOption());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+
         Pane simpleSavingPane = new Pane();
+
+        simpleSavingPane.getChildren().addAll(table);
 
         keyBoardScene = new Scene(simpleSavingPane,700,600);
 
         window.setScene(keyBoardScene);
         window.show();
+
+    }
+
+    public static ObservableList<DefaultMember> getMember(){
+        ObservableList<DefaultMember> defaultMembers = FXCollections.observableArrayList();
+        ArrayList<String> names = Database.readName();
+
+
+        for(int count=0; count<=names.size()-1; count++){
+            defaultMembers.add(new DefaultMember(34,names.get(count),"erf","rf","rfrf"));
+        }
+
+        return defaultMembers;
+
     }
 
 }

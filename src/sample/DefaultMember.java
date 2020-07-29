@@ -5,14 +5,16 @@ public class DefaultMember {
     private String name;
     private String memType;
     private String gender;
+    private String city;
     private int counter;
 
-    public DefaultMember(int mem_no, String name,String memType,String gender){
+    public DefaultMember(int mem_no, String name,String memType,String gender,String city){
         super();
         this.mem_no = mem_no;
         this.name = name;
         this.memType = memType;
         this.gender = gender;
+        this.city = city;
     }
 
 
@@ -40,6 +42,9 @@ public class DefaultMember {
         return gender;
     }
 
+    public String getCity(){
+        return city;
+    }
 
 
 

@@ -24,8 +24,9 @@ public class Database {
 
         docBuilder.append("_id", user.getID());
         docBuilder.append("name", user.getName());
-        docBuilder.append("mem_type", user.getMemType());
         docBuilder.append("gender", user.getGender());
+        docBuilder.append("city", user.getCity());
+        docBuilder.append("mem_type", user.getMemType());
         return docBuilder.get();
     }
 
@@ -35,6 +36,7 @@ public class Database {
         docBuilder.append("_id", user.getID());
         docBuilder.append("name", user.getName());
         docBuilder.append("gender", user.getGender());
+        docBuilder.append("city", user.getCity());
         docBuilder.append("school",user.getSchool());
         docBuilder.append("mem_type", user.getMemType());
         return docBuilder.get();
@@ -46,6 +48,7 @@ public class Database {
         docBuilder.append("_id", user.getID());
         docBuilder.append("name", user.getName());
         docBuilder.append("gender", user.getGender());
+        docBuilder.append("city", user.getCity());
         docBuilder.append("age",user.getAge());
         docBuilder.append("mem_type", user.getMemType());
         return docBuilder.get();
@@ -53,9 +56,9 @@ public class Database {
 
 
 
-    public static DBCollection DefaultMemberCreate(int id, String name,String gender){
+    public static DBCollection DefaultMemberCreate(int id, String name,String gender,String city){
 
-        DefaultMember defaultMember = new DefaultMember(id,name,"Default Member",gender);
+        DefaultMember defaultMember = new DefaultMember(id,name,"Default Member",gender,city);
 
         DBObject doc = sample.Database.defaultMember(defaultMember);
         DB db = sample.Database.Dbconfig();
@@ -64,9 +67,9 @@ public class Database {
         return col;
     }
 
-    public static DBCollection StudentMemberCreate(int id, String name, String schoolName,String gender){
+    public static DBCollection StudentMemberCreate(int id, String name, String schoolName,String gender,String city){
 
-        StudentMember studentMember = new StudentMember(id,name,schoolName,"Student Member",gender);
+        StudentMember studentMember = new StudentMember(id,name,schoolName,"Student Member",gender,city);
 
         DBObject doc = sample.Database.studentMember(studentMember);
         DB db = sample.Database.Dbconfig();
@@ -75,9 +78,9 @@ public class Database {
         return col;
     }
 
-    public static DBCollection Over60MemberCreate(int id, String name, int age,String gender){
+    public static DBCollection Over60MemberCreate(int id, String name, int age,String gender,String city){
 
-        Over60Member over60Member = new Over60Member(id,name,age,"Over 60 Member",gender);
+        Over60Member over60Member = new Over60Member(id,name,age,"Over 60 Member",gender,city);
 
         DBObject doc = sample.Database.over60Member(over60Member);
         DB db = sample.Database.Dbconfig();
@@ -177,6 +180,10 @@ public class Database {
         }
         return memTypeArray;
     }
+
+
+
+
 
 
 
