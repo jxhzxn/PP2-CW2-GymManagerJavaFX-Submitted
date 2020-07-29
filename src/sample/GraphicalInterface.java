@@ -31,9 +31,19 @@ public class GraphicalInterface{
         showAllBtn.setLayoutX(450);
         showAllBtn.setLayoutY(50);
 
+        Label lbl1 = new Label();
+        lbl1.setLayoutX(90);
+        lbl1.setLayoutY(540);
+
         searchField.setId("searchField");
         searchBtn.setId("searchBtn");
         showAllBtn.setId("searchBtn");
+        lbl1.setId("label");
+
+        int count = 100-Database.getCount();
+
+
+        lbl1.setText("Registrations Available : "+String.valueOf(count));
 
 
         //nameColumn
@@ -92,7 +102,7 @@ public class GraphicalInterface{
 
 
         Pane simpleSavingPane = new Pane();
-        simpleSavingPane.getChildren().addAll(table,searchBtn,searchField,showAllBtn);
+        simpleSavingPane.getChildren().addAll(table,searchBtn,searchField,showAllBtn,lbl1);
         guiScene = new Scene(simpleSavingPane,800,600);
         guiScene.getStylesheets().add(GraphicalInterface.class.getResource("stylesheet.css").toExternalForm());
 
