@@ -145,8 +145,14 @@ public class Database {
         DBCollection col = db.getCollection("users");
         DBCursor cursor = col.find();
         DBCursor cursor1 = col.find();
+        DBCursor cursor2 = col.find();
+        DBCursor cursor3 = col.find();
+        int count = 1;
+
         while (cursor.hasNext()){
-            System.out.println(cursor.next().get("name").toString()+"\t-\t"+cursor1.next().get("mem_type").toString());
+            System.out.println("["+count+"]  \t\n"+" Full Name : "+cursor.next().get("name").toString()+" \n "+"Gender : "+cursor1.next().get("gender").toString()+" \n "+"City : "+cursor2.next().get("city").toString()+" \n "+"Member Type : "+cursor3.next().get("mem_type").toString());
+            System.out.println("");
+            count++;
         }
     }
 
@@ -159,27 +165,7 @@ public class Database {
         }
     }
 
-    public static ArrayList<String> readName(){
-        DB db = sample.Database.Dbconfig();
-        DBCollection col = db.getCollection("users");
-        DBCursor cursor = col.find();
-        ArrayList<String> nameArray = new ArrayList<>();
-        while (cursor.hasNext()){
-            nameArray.add(cursor.next().get("name").toString());
-        }
-        return nameArray;
-    }
 
-    public static ArrayList<String> readMemType(){
-        DB db = sample.Database.Dbconfig();
-        DBCollection col = db.getCollection("users");
-        DBCursor cursor = col.find();
-        ArrayList<String> memTypeArray = new ArrayList<>();
-        while (cursor.hasNext()){
-            memTypeArray.add(cursor.next().get("mem_type").toString());
-        }
-        return memTypeArray;
-    }
 
 
 

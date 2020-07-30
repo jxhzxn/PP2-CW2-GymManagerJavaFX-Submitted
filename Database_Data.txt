@@ -1,5 +1,80 @@
 Exported Data from the Database
 -------------------------------------
-Chandira       Default Member
-Nisal       Student Member
-Gugsi       Over 60 Member
+[1]  	
+ Full Name : MAHELA 
+ Gender : GALLE 
+ Member Type : DEFAULT 
+ City : GALLE
+
+[2]  	
+ Full Name : MIKKEL 
+ Gender : WINDEN 
+ Member Type : STUDENT 
+ City : WINDEN
+
+[3]  	
+ Full Name : SAM 
+ Gender : GALLE 
+ Member Type : OVER 60 
+ City : GALLE
+
+[4]  	
+ Full Name : JAHZAN 
+ Gender : DEHIWALA 
+ Member Type : DEFAULT 
+ City : DEHIWALA
+
+[5]  	
+ Full Name : CHANDIRA GUNATHILEKA 
+ Gender : COLOMBO 
+ Member Type : DEFAULT 
+ City : COLOMBO
+
+[6]  	
+ Full Name : SACHINI 
+ Gender : BAMBALAPITIYA 
+ Member Type : DEFAULT 
+ City : BAMBALAPITIYA
+
+[7]  	
+ Full Name : MALINGA 
+ Gender : JAFFNA 
+ Member Type : DEFAULT 
+ City : JAFFNA
+
+[8]  	
+ Full Name : REGINA 
+ Gender : WINDEN 
+ Member Type : STUDENT 
+ City : WINDEN
+
+[9]  	
+ Full Name : JAHZAN 
+ Gender : MOUNT 
+ Member Type : DEFAULT 
+ City : MOUNT
+
+[10]  	
+ Full Name : JAHZAN 
+ Gender : KANDY 
+ Member Type : STUDENT 
+ City : KANDY
+
+[11]  	
+ Full Name : GUGSI PORAVI 
+ Gender : ANGODA 
+ Member Type : OVER 60 
+ City : ANGODA
+
+[12]  	
+ Full Name : ULRICH 
+ Gender : WINDEN 
+ Member Type : STUDENT 
+ City : WINDEN
+
+[13]  	
+ Full Name : CLAY 
+ Gender : NEW JERSEY 
+ Member Type : STUDENT 
+ City : NEW JERSEY
+

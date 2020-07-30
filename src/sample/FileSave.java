@@ -18,12 +18,18 @@ public class FileSave {
             FileWriter fileWriter = new FileWriter(file);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
-            ArrayList<String> readName = sample.Database.readName();
-            ArrayList<String> readMemType = sample.Database.readMemType();
+            ArrayList<String> readName = Database.readCustom("name");
+            ArrayList<String> readMemType = Database.readCustom("mem_type");
+            ArrayList<String> readCity = Database.readCustom("city");
+            ArrayList<String> readGender = Database.readCustom("city");
+
             printWriter.println("Exported Data from the Database");
             printWriter.println("-------------------------------------");
+            int counter = 1;
             for(int count=0; count<=readName.size()-1; count++){
-                printWriter.println(readName.get(count)+"\t\t"+readMemType.get(count));
+                printWriter.println("["+counter+"]  \t\n"+" Full Name : "+readName.get(count)+" \n "+"Gender : "+readGender.get(count)+" \n "+"Member Type : "+readMemType.get(count)+" \n "+"City : "+readCity.get(count));
+                printWriter.println("");
+                counter++;
             }
 
             printWriter.close();
