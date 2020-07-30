@@ -88,11 +88,16 @@ public class MyGymManager extends Application implements GymManager {
         int idVal = lastID + 1;
 
         if (Database.getCount() < 100) {
+            System.out.println("");
+            System.out.println("[Add a new Member]");
+            System.out.println("------------------");
+            System.out.println("");
             System.out.println(" Default Member      :   1 \n " +
                     "Student Member      :   2 \n " +
                     "Over 60 Member      :   3 \n"
             );
             System.out.println("Number of Registrations Available : " + (100 - Database.getCount()));
+            System.out.println("");
             System.out.print("Category to Register : ");
             String optionCat = sc.nextLine();
             System.out.println("");
@@ -207,8 +212,9 @@ public class MyGymManager extends Application implements GymManager {
         MyGymManager myGymManager = new MyGymManager();
 
         Scanner strInput = new Scanner(System.in);
-        System.out.println("Member Deletion");
-        System.out.println("-------------------------------");
+        System.out.println("");
+        System.out.println("[Member Deletion]");
+        System.out.println("---------------------");
         System.out.print("Enter the Name of the member you want to delete : ");
         String name = strInput.nextLine();
         myGymManager.deleteMemberValidate(name);

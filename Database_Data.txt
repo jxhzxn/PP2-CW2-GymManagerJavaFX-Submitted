@@ -1,104 +1,86 @@
 Exported Data from the Database
 -------------------------------------
 [1]  	
- Full Name : MAHELA 
- Gender : GALLE 
- Member Type : DEFAULT 
- City : GALLE
-
-[2]  	
  Full Name : MIKKEL 
  Gender : WINDEN 
  Member Type : STUDENT 
  City : WINDEN
 
-[3]  	
- Full Name : SAM 
- Gender : GALLE 
- Member Type : OVER 60 
- City : GALLE
-
-[4]  	
+[2]  	
  Full Name : JAHZAN 
  Gender : DEHIWALA 
  Member Type : DEFAULT 
  City : DEHIWALA
 
-[5]  	
+[3]  	
  Full Name : CHANDIRA GUNATHILEKA 
  Gender : COLOMBO 
  Member Type : DEFAULT 
  City : COLOMBO
 
-[6]  	
- Full Name : SACHINI 
- Gender : BAMBALAPITIYA 
- Member Type : DEFAULT 
- City : BAMBALAPITIYA
-
-[7]  	
- Full Name : MALINGA 
- Gender : JAFFNA 
- Member Type : DEFAULT 
- City : JAFFNA
-
-[8]  	
- Full Name : REGINA 
- Gender : WINDEN 
- Member Type : STUDENT 
- City : WINDEN
-
-[9]  	
+[4]  	
  Full Name : JAHZAN 
  Gender : MOUNT 
  Member Type : DEFAULT 
  City : MOUNT
 
-[10]  	
+[5]  	
  Full Name : JAHZAN 
  Gender : KANDY 
  Member Type : STUDENT 
  City : KANDY
 
-[11]  	
+[6]  	
  Full Name : GUGSI PORAVI 
  Gender : ANGODA 
  Member Type : OVER 60 
  City : ANGODA
 
-[12]  	
+[7]  	
  Full Name : ULRICH 
  Gender : WINDEN 
  Member Type : STUDENT 
  City : WINDEN
 
-[13]  	
+[8]  	
  Full Name : CLAY 
  Gender : NEW JERSEY 
  Member Type : STUDENT 
  City : NEW JERSEY
 
-[14]  	
+[9]  	
  Full Name : ERLICH 
  Gender : USA 
  Member Type : DEFAULT 
  City : USA
 
-[15]  	
+[10]  	
  Full Name : SHUHAIB 
  Gender : COLOMBO 
  Member Type : OVER 60 
  City : COLOMBO
 
-[16]  	
+[11]  	
  Full Name : EINSTEIN 
  Gender : ENGLAND 
  Member Type : OVER 60 
  City : ENGLAND
 
-[17]  	
+[12]  	
  Full Name : 234567 
  Gender : QWER 
  Member Type : DEFAULT 
  City : QWER
+
+[13]  	
+ Full Name : AABITH 
+ Gender : KALUBOWILA 
+ Member Type : STUDENT 
+ City : KALUBOWILA
+
+[14]  	
+ Full Name : NADHEE 
+ Gender : MOUNT LAVINIA 
+ Member Type : DEFAULT 
+ City : MOUNT LAVINIA
 

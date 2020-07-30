@@ -29,12 +29,12 @@ public class GraphicalInterface{
         //creating a button for the search
         Button searchBtn = new Button("Search");
         searchBtn.setLayoutX(350);
-        searchBtn.setLayoutY(50);
+        searchBtn.setLayoutY(52);
 
         //creating a button for showAll
         Button showAllBtn = new Button("Show All");
         showAllBtn.setLayoutX(450);
-        showAllBtn.setLayoutY(50);
+        showAllBtn.setLayoutY(52);
 
         //creating a label
         Label lbl1 = new Label();
@@ -119,17 +119,6 @@ public class GraphicalInterface{
 
         window.setScene(guiScene);
         window.show();
-
-//        //When the UI close Button is Clicked;
-//        window.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, event -> {
-//            window.close();
-//            MyGymManager myGymManager = new MyGymManager();
-//            try {
-//                myGymManager.functionChoose(myGymManager.menuOption());
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        });
 
     }
 

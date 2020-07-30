@@ -1,6 +1,7 @@
 package sample;
 
 import com.mongodb.*;
+import sun.plugin.util.ProgressMonitor;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -117,14 +118,16 @@ public class Database {
 
             int count = 100-Database.getCount();
 
-            System.out.println("");
-            System.out.println("-------------------");
+            System.out.println(" ");
+            System.out.println("-------------------------------------------------------------");
             System.out.println("Succesfully Deleted '"+memName+"' who is a "+memType+" Member");
+            System.out.println("-------------------------------------------------------------");
+            System.out.println(" ");
+            col.remove(query);
+            System.out.println("Number of Registrations Available : " + (100 - Database.getCount()));
+
             System.out.println("");
-            System.out.println("Number of free spaces Available : "+count);
-            System.out.println("-------------------");
-            System.out.println("");
-//        col.remove(query);
+
         }catch (NoSuchElementException e){
             System.out.println("");
             System.out.println("-------------------");
@@ -202,11 +205,10 @@ public class Database {
     public static DBObject readNameSearch(String name){
         DB db = Database.Dbconfig();
         DBCollection col = db.getCollection("users");
-        DBObject dbObject = BasicDBObjectBuilder.start().add("name", name).get();
+//        DBObject dbObject = BasicDBObjectBuilder.start().add("name",name).get();
+        DBObject dbObject = new BasicDBObject("name", name).append("name", new BasicDBObject("$regex", String.valueOf(name)));
         return dbObject;
     }
-
-
 
 
     public static ArrayList<String> nameSearch(DBObject object, String key){
