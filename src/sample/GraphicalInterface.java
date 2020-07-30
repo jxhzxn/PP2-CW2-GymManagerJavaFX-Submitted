@@ -7,7 +7,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
@@ -117,6 +119,17 @@ public class GraphicalInterface{
 
         window.setScene(guiScene);
         window.show();
+
+//        //When the UI close Button is Clicked;
+//        window.getScene().getWindow().addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST, event -> {
+//            window.close();
+//            MyGymManager myGymManager = new MyGymManager();
+//            try {
+//                myGymManager.functionChoose(myGymManager.menuOption());
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//        });
 
     }
 

@@ -58,6 +58,9 @@ public class MyGymManager extends Application implements GymManager {
             } else if (opt == 6) {
                 myGymManager.openGUI();
             }else if(opt==7){
+                System.out.println("");
+                System.out.println("GoodBye :)");
+                System.out.println("");
                 System.exit(0);
             }else{
                 System.out.println("");
@@ -234,8 +237,17 @@ public class MyGymManager extends Application implements GymManager {
         try{
             int sortOption = intInput.nextInt();
             if (sortOption == 1) {
+                System.out.println("");
+                System.out.println("[Sorting in Alphabetical Ascending]");
+                System.out.println("----------------------------------");
+                System.out.println("");
+
                 Database.sorting("name", 1);
             } else if (sortOption == 2) {
+                System.out.println("");
+                System.out.println("[Sorting in Alphabetical Descending]");
+                System.out.println("----------------------------------");
+                System.out.println("");
                 Database.sorting("name", -1);
             }else{
                 System.out.println("");
@@ -260,7 +272,8 @@ public class MyGymManager extends Application implements GymManager {
         MyGymManager myGymManager = new MyGymManager();
 
         FileSave.fileWrite();
-        myGymManager.endingPart("file saved successfully");
+        myGymManager.endingPart("[File Exported Successfully]");
+
 
     }
 
@@ -293,6 +306,7 @@ public class MyGymManager extends Application implements GymManager {
             System.exit(0);
         }else{
             System.out.println("Invalid input");
+            myGymManager.endingPart("");
         }
     }
 
@@ -341,20 +355,7 @@ public class MyGymManager extends Application implements GymManager {
         }
     }
 
-    public void sortingValidate(int input){
-        try{
-            String in = String.valueOf(input);
-            System.out.println("");
-            System.out.println("--------------");
-            System.out.println("Invalid Input");
-            System.out.println("--------------");
-            System.out.println("");
 
-            MyGymManager myGymManager = new MyGymManager();
-            myGymManager.sorting();
-        }catch (InputMismatchException e){
-        }
-    }
 
 
 }
