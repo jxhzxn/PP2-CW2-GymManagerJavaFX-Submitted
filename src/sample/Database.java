@@ -4,6 +4,7 @@ import com.mongodb.*;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 
 public class Database {
@@ -104,17 +105,34 @@ public class Database {
 
     //method to delete a member from MongoDB
     public static void deleteUser(String name){
-        DB db = sample.Database.Dbconfig();
-        DBCollection col = db.getCollection("users");
-        DBObject query = BasicDBObjectBuilder.start().add("name", name).get();
-        DBCursor cursor = col.find();
-        DBCursor cursor1 = col.find();
+        try{
+            DB db = sample.Database.Dbconfig();
+            DBCollection col = db.getCollection("users");
+            DBObject query = BasicDBObjectBuilder.start().add("name", name.toUpperCase()).get();
+            DBCursor cursor = col.find(query);
+            DBCursor cursor1 = col.find(query);
 
-        String memType = cursor.next().get("mem_type").toString();
-        String memName = cursor1.next().get("name").toString();
+            String memType = cursor.next().get("mem_type").toString();
+            String memName = cursor1.next().get("name").toString();
 
-        System.out.println(memName+" is deleted who is a "+memType);
-        col.remove(query);
+            int count = 100-Database.getCount();
+
+            System.out.println("");
+            System.out.println("-------------------");
+            System.out.println("Succesfully Deleted '"+memName+"' who is a "+memType+" Member");
+            System.out.println("");
+            System.out.println("Number of free spaces Available : "+count);
+            System.out.println("-------------------");
+            System.out.println("");
+//        col.remove(query);
+        }catch (NoSuchElementException e){
+            System.out.println("");
+            System.out.println("-------------------");
+            System.out.println("'"+name+"' is not a registered Member");
+            System.out.println("-------------------");
+            System.out.println("");
+        }
+
     }
 
     //method to get the Last Registered Member's ID
@@ -172,6 +190,14 @@ public class Database {
         return nameArray;
     }
 
+
+
+
+
+
+
+
+
     //last two methods to get the name from the user and search all the other details from MongoDB, this is used in the GUI Searching section
     public static DBObject readNameSearch(String name){
         DB db = Database.Dbconfig();
@@ -179,6 +205,9 @@ public class Database {
         DBObject dbObject = BasicDBObjectBuilder.start().add("name", name).get();
         return dbObject;
     }
+
+
+
 
     public static ArrayList<String> nameSearch(DBObject object, String key){
         DB db = Database.Dbconfig();

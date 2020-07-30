@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import java.io.Console;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -90,99 +91,112 @@ public class MyGymManager extends Application implements GymManager {
             );
             System.out.println("Number of Registrations Available : " + (100 - Database.getCount()));
             System.out.print("Category to Register : ");
-            int optionCat = sc.nextInt();
+            String optionCat = sc.nextLine();
             System.out.println("");
 
-            if (optionCat == 1) {
-                Scanner strInput = new Scanner(System.in);
-                Scanner intInput = new Scanner(System.in);
-                Scanner cityInput = new Scanner(System.in);
+            try{
+                int opt = Integer.parseInt(optionCat);
 
-                System.out.println("Default Member Registration");
-                System.out.println("-------------------------------");
+                if (opt == 1) {
+                    Scanner strInput = new Scanner(System.in);
+                    Scanner intInput = new Scanner(System.in);
+                    Scanner cityInput = new Scanner(System.in);
 
-                System.out.print("Full Name : ");
-                String name = strInput.nextLine();
-                System.out.print("Gender : ");
-                String gender = intInput.nextLine();
-                System.out.print("City : ");
-                String city = cityInput.nextLine();
+                    System.out.println("Default Member Registration");
+                    System.out.println("-------------------------------");
 
-                Database.DefaultMemberCreate(idVal, name.toUpperCase(),gender.toUpperCase(),city.toUpperCase());
-                myGymManager.endingPart("Registration Successful");
+                    System.out.print("Full Name : ");
+                    String name = strInput.nextLine();
+                    myGymManager.strCheck(name);
 
+                    System.out.print("Gender : ");
+                    String gender = intInput.nextLine();
+                    myGymManager.strCheck(gender);
 
-
-            } else if (optionCat == 2) {
-                Scanner strInput = new Scanner(System.in);
-                Scanner intInput = new Scanner(System.in);
-                Scanner cityInput = new Scanner(System.in);
-
-                System.out.println("Student Member Registration");
-                System.out.println("-------------------------------");
-
-                System.out.print("Full Name : ");
-                String name = strInput.nextLine();
-
-                System.out.print("Gender : ");
-                String gender = intInput.nextLine();
-
-                System.out.print("City : ");
-                String city = cityInput.nextLine();
-
-                System.out.print("School : ");
-                String school = strInput.nextLine();
-
-                Database.StudentMemberCreate(idVal, name.toUpperCase(), school.toUpperCase(),gender.toUpperCase(),city.toUpperCase());
-                myGymManager.endingPart("Registration Successful");
+                    System.out.print("City : ");
+                    String city = cityInput.nextLine();
+                    myGymManager.strCheck(city);
 
 
-            } else if (optionCat == 3) {
-                Scanner strInput = new Scanner(System.in);
-                Scanner intInput = new Scanner(System.in);
-                Scanner genderInput = new Scanner(System.in);
-                Scanner cityInput = new Scanner(System.in);
 
-                System.out.println("Over60 Member Registration");
-                System.out.println("-------------------------------");
+                    Database.DefaultMemberCreate(idVal, name.toUpperCase(),gender.toUpperCase(),city.toUpperCase());
+                    myGymManager.endingPart("Registration Successful");
+
+                } else if (opt == 2) {
+                    Scanner strInput = new Scanner(System.in);
+                    Scanner intInput = new Scanner(System.in);
+                    Scanner cityInput = new Scanner(System.in);
+
+                    System.out.println("Student Member Registration");
+                    System.out.println("-------------------------------");
+
+                    System.out.print("Full Name : ");
+                    String name = strInput.nextLine();
+                    myGymManager.strCheck(name);
+
+                    System.out.print("Gender : ");
+                    String gender = intInput.nextLine();
+                    myGymManager.strCheck(gender);
+
+                    System.out.print("City : ");
+                    String city = cityInput.nextLine();
+                    myGymManager.strCheck(city);
+
+                    System.out.print("School : ");
+                    String school = strInput.nextLine();
+                    myGymManager.strCheck(school);
+
+                    Database.StudentMemberCreate(idVal, name.toUpperCase(), school.toUpperCase(),gender.toUpperCase(),city.toUpperCase());
+                    myGymManager.endingPart("Registration Successful");
+
+                } else if (opt == 3) {
+                    Scanner strInput = new Scanner(System.in);
+                    Scanner intInput = new Scanner(System.in);
+                    Scanner genderInput = new Scanner(System.in);
+                    Scanner cityInput = new Scanner(System.in);
+
+                    System.out.println("Over60 Member Registration");
+                    System.out.println("-------------------------------");
 
 
-                System.out.print("Full Name : ");
-                String name = strInput.nextLine();
+                    System.out.print("Full Name : ");
+                    String name = strInput.nextLine();
+                    myGymManager.strCheck(name);
 
-                System.out.print("Gender : ");
-                String gender = genderInput.nextLine();
+                    System.out.print("Gender : ");
+                    String gender = genderInput.nextLine();
+                    myGymManager.strCheck(gender);
 
-                System.out.print("Age : ");
-                int age = intInput.nextInt();
+                    System.out.print("Age : ");
+                    int age = intInput.nextInt();
+                    myGymManager.intCheck(age);
 
-                System.out.print("City : ");
-                String city = cityInput.nextLine();
+                    System.out.print("City : ");
+                    String city = cityInput.nextLine();
+                    myGymManager.strCheck(city);
 
-                Database.Over60MemberCreate(idVal, name.toUpperCase(), age,gender.toUpperCase(),city.toUpperCase());
-                myGymManager.endingPart("Registration Successful");
-
+                    Database.Over60MemberCreate(idVal, name.toUpperCase(), age,gender.toUpperCase(),city.toUpperCase());
+                    myGymManager.endingPart("Registration Successful");
             }else{
-                try{
-                    System.out.println("Invalid Input");
-                    System.out.println("-----------------------------");
                     System.out.println("");
-                    myGymManager.functionChoose(myGymManager.menuOption());
-                }catch (InputMismatchException | FileNotFoundException e){
-                    System.out.println("Invalid Input");
-                    System.out.println("-----------------------------");
+                    System.out.println("------------------");
+                    System.out.println("Enter only from (1-3)");
+                    System.out.println("------------------");
                     System.out.println("");
-                    try {
-                        myGymManager.functionChoose(myGymManager.menuOption());
-                    } catch (InputMismatchException fileNotFoundException) {
-                        myGymManager.functionChoose(myGymManager.menuOption());
-                    }
+                    myGymManager.addMember();
                 }
+            }catch(NumberFormatException e){
+                System.out.println("");
+                System.out.println("------------------");
+                System.out.println("Invalid Input");
+                System.out.println("------------------");
+                System.out.println("");
+                myGymManager.addMember();
             }
         } else if (Database.getCount() == 100) {
             System.out.println("Registration limit of 100 is reached :(");
         }
-//        myGymManager.menuOption();
+        myGymManager.endingPart("");
     }
 
 
@@ -194,8 +208,9 @@ public class MyGymManager extends Application implements GymManager {
         System.out.println("-------------------------------");
         System.out.print("Enter the Name of the member you want to delete : ");
         String name = strInput.nextLine();
+        myGymManager.deleteMemberValidate(name);
         Database.deleteUser(name);
-        myGymManager.endingPart("Deletion Successful");
+        myGymManager.endingPart("");
 //        System.out.println(name + " is Deleted from the Registration List");
     }
 
@@ -264,6 +279,51 @@ public class MyGymManager extends Application implements GymManager {
             System.exit(0);
         }else{
             System.out.println("Invalid input");
+        }
+    }
+
+    public void strCheck(String input){
+        try{
+            int in = Integer.parseInt(input);
+            System.out.println("");
+            System.out.println("--------------");
+            System.out.println("Invalid Input");
+            System.out.println("--------------");
+            System.out.println("");
+
+            MyGymManager myGymManager = new MyGymManager();
+            myGymManager.addMember();
+        }catch (NumberFormatException | FileNotFoundException e){
+        }
+    }
+
+    public void intCheck(int input){
+        try{
+            String in = String.valueOf(input);
+            System.out.println("");
+            System.out.println("--------------");
+            System.out.println("Invalid Input");
+            System.out.println("--------------");
+            System.out.println("");
+
+            MyGymManager myGymManager = new MyGymManager();
+            myGymManager.addMember();
+        }catch (NumberFormatException | FileNotFoundException e){
+        }
+    }
+
+    public void deleteMemberValidate(String input){
+        try{
+            int in = Integer.parseInt(input);
+            System.out.println("");
+            System.out.println("--------------");
+            System.out.println("Invalid Input");
+            System.out.println("--------------");
+            System.out.println("");
+
+            MyGymManager myGymManager = new MyGymManager();
+            myGymManager.deleteMember();
+        }catch (NumberFormatException e){
         }
     }
 
