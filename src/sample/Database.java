@@ -58,7 +58,7 @@ public class Database {
 
     public static DBCollection DefaultMemberCreate(int id, String name,String gender,String city){
 
-        DefaultMember defaultMember = new DefaultMember(id,name,"Default Member",gender,city);
+        DefaultMember defaultMember = new DefaultMember(id,name,"DEFAULT",gender,city);
 
         DBObject doc = sample.Database.defaultMember(defaultMember);
         DB db = sample.Database.Dbconfig();
@@ -69,7 +69,7 @@ public class Database {
 
     public static DBCollection StudentMemberCreate(int id, String name, String schoolName,String gender,String city){
 
-        StudentMember studentMember = new StudentMember(id,name,schoolName,"Student Member",gender,city);
+        StudentMember studentMember = new StudentMember(id,name,schoolName,"STUDENT",gender,city);
 
         DBObject doc = sample.Database.studentMember(studentMember);
         DB db = sample.Database.Dbconfig();
@@ -80,7 +80,7 @@ public class Database {
 
     public static DBCollection Over60MemberCreate(int id, String name, int age,String gender,String city){
 
-        Over60Member over60Member = new Over60Member(id,name,age,"Over 60 Member",gender,city);
+        Over60Member over60Member = new Over60Member(id,name,age,"OVER 60",gender,city);
 
         DBObject doc = sample.Database.over60Member(over60Member);
         DB db = sample.Database.Dbconfig();
@@ -212,17 +212,22 @@ public class Database {
     public static DBObject readNameTest(String name){
         DB db = Database.Dbconfig();
         DBCollection col = db.getCollection("users");
-        DBObject query = BasicDBObjectBuilder.start().add("name", name).get();
-        return query;
+        DBObject dbObject = BasicDBObjectBuilder.start().add("name", name).get();
+        return dbObject;
     }
 
 
 
-    public static String nameSearch(DBObject test, String key){
+    public static ArrayList<String> nameSearch(DBObject object, String key){
         DB db = Database.Dbconfig();
         DBCollection col = db.getCollection("users");
-        DBCursor cursor = col.find(test);
-        return cursor.next().get(key).toString();
+        DBCursor cursor = col.find(object);
+        ArrayList<String> foundNames = new ArrayList<>();
+        while(cursor.hasNext()){
+            String searched = cursor.next().get(key).toString();
+            foundNames.add(searched);
+        }
+        return foundNames;
     }
 
 

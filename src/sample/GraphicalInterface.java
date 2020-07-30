@@ -15,7 +15,7 @@ public class GraphicalInterface{
     public static void display(){
         Stage window = new Stage();
         Scene guiScene;
-        window.setTitle("Gym Manager GUI");
+        window.setTitle("Gym Manager");
 
         TableView<DefaultMember> table;
 
@@ -40,15 +40,16 @@ public class GraphicalInterface{
         showAllBtn.setId("searchBtn");
         lbl1.setId("label");
 
-        int count = 100-Database.getCount();
+        String remaining = String.valueOf(100-Database.getCount());
+        String reg = String.valueOf(Database.getCount());
 
 
-        lbl1.setText("Registrations Available : "+String.valueOf(count));
+        lbl1.setText("Registrations : "+reg+" / 100");
 
 
         //nameColumn
-        TableColumn<DefaultMember,String> nameColumn = new TableColumn<>("Name");
-        nameColumn.setMinWidth(150);
+        TableColumn<DefaultMember,String> nameColumn = new TableColumn<>("Full Name");
+        nameColumn.setMinWidth(250);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         //genderColumn
@@ -59,12 +60,12 @@ public class GraphicalInterface{
 
         //cityColumn
         TableColumn<DefaultMember,String> cityColumn = new TableColumn<>("City");
-        cityColumn.setMinWidth(80);
+        cityColumn.setPrefWidth(200);
         cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
 
         //memTypeColumn
         TableColumn<DefaultMember,String> memTypeColumn = new TableColumn<>("Member Type");
-        memTypeColumn.setMinWidth(80);
+        memTypeColumn.setPrefWidth(150);
         memTypeColumn.setCellValueFactory(new PropertyValueFactory<>("memType"));
 
 
@@ -96,14 +97,14 @@ public class GraphicalInterface{
 
         table.setLayoutX(90);
         table.setLayoutY(120);
-        table.setPrefWidth(630);
+        table.setPrefWidth(750);
 
 
 
 
         Pane simpleSavingPane = new Pane();
         simpleSavingPane.getChildren().addAll(table,searchBtn,searchField,showAllBtn,lbl1);
-        guiScene = new Scene(simpleSavingPane,800,600);
+        guiScene = new Scene(simpleSavingPane,930,630);
         guiScene.getStylesheets().add(GraphicalInterface.class.getResource("stylesheet.css").toExternalForm());
 
         window.setScene(guiScene);
@@ -131,20 +132,22 @@ public class GraphicalInterface{
         ObservableList<DefaultMember> defaultMembers = FXCollections.observableArrayList();
 
         try{
-            String name = Database.nameSearch(Database.readNameTest(textField.getText()),"name");
-            String memType = Database.nameSearch(Database.readNameTest(textField.getText()),"mem_type");
-            String gender = Database.nameSearch(Database.readNameTest(textField.getText()),"gender");
-            String city = Database.nameSearch(Database.readNameTest(textField.getText()),"city");
+            String searchName = textField.getText().toUpperCase();
 
+            ArrayList<String> nameArray = Database.nameSearch(Database.readNameTest(searchName),"name");
+            ArrayList<String> memTypeArray = Database.nameSearch(Database.readNameTest(searchName),"mem_type");
+            ArrayList<String> genderArray = Database.nameSearch(Database.readNameTest(searchName),"gender");
+            ArrayList<String> cityArray = Database.nameSearch(Database.readNameTest(searchName),"city");
 
+            for (int i=0; i<=nameArray.size()-1;i++){
+                defaultMembers.add(new DefaultMember(23,nameArray.get(i),memTypeArray.get(i),genderArray.get(i),cityArray.get(i)));
+            }
 
-            defaultMembers.add(new DefaultMember(23,name,memType,gender,city));
 
         }catch (NoSuchElementException e){
 
         }
         return defaultMembers;
-
     }
 
 }

@@ -98,14 +98,14 @@ public class MyGymManager extends Application implements GymManager {
                 System.out.println("Default Member Registration");
                 System.out.println("-------------------------------");
 
-                System.out.print("Enter the Name : ");
+                System.out.print("Full Name : ");
                 String name = strInput.nextLine();
-                System.out.print("Enter the Gender : ");
+                System.out.print("Gender : ");
                 String gender = intInput.nextLine();
-                System.out.print("Enter the City : ");
+                System.out.print("City : ");
                 String city = cityInput.nextLine();
 
-                Database.DefaultMemberCreate(idVal, name,gender,city);
+                Database.DefaultMemberCreate(idVal, name.toUpperCase(),gender.toUpperCase(),city.toUpperCase());
                 myGymManager.endingPart("Registration Successful");
 
 
@@ -118,19 +118,19 @@ public class MyGymManager extends Application implements GymManager {
                 System.out.println("Student Member Registration");
                 System.out.println("-------------------------------");
 
-                System.out.print("Enter the Name : ");
+                System.out.print("Full Name : ");
                 String name = strInput.nextLine();
 
-                System.out.print("Enter the Gender : ");
+                System.out.print("Gender : ");
                 String gender = intInput.nextLine();
 
-                System.out.print("Enter the City : ");
+                System.out.print("City : ");
                 String city = cityInput.nextLine();
 
-                System.out.print("Enter the School : ");
+                System.out.print("School : ");
                 String school = strInput.nextLine();
 
-                Database.StudentMemberCreate(idVal, name, school,gender,city);
+                Database.StudentMemberCreate(idVal, name.toUpperCase(), school.toUpperCase(),gender.toUpperCase(),city.toUpperCase());
                 myGymManager.endingPart("Registration Successful");
 
 
@@ -144,19 +144,19 @@ public class MyGymManager extends Application implements GymManager {
                 System.out.println("-------------------------------");
 
 
-                System.out.print("Enter the Name : ");
+                System.out.print("Full Name : ");
                 String name = strInput.nextLine();
 
-                System.out.print("Enter the Gender : ");
+                System.out.print("Gender : ");
                 String gender = genderInput.nextLine();
 
-                System.out.print("Enter the Age : ");
+                System.out.print("Age : ");
                 int age = intInput.nextInt();
 
-                System.out.print("Enter the City : ");
+                System.out.print("City : ");
                 String city = cityInput.nextLine();
 
-                Database.Over60MemberCreate(idVal, name, age,gender,city);
+                Database.Over60MemberCreate(idVal, name.toUpperCase(), age,gender.toUpperCase(),city.toUpperCase());
                 myGymManager.endingPart("Registration Successful");
 
             }else{
