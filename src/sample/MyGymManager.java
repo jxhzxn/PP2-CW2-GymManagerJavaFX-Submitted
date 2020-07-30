@@ -231,15 +231,29 @@ public class MyGymManager extends Application implements GymManager {
         System.out.println(" Sort Name in Ascending     : 1\n " + "Sort Name in Descending    : 2");
         System.out.println("");
         System.out.print("Choose the Sorting method : ");
-        int sortOption = intInput.nextInt();
-
-        if (sortOption == 1) {
-            Database.sorting("name", 1);
-        } else if (sortOption == 2) {
-            Database.sorting("name", -1);
+        try{
+            int sortOption = intInput.nextInt();
+            if (sortOption == 1) {
+                Database.sorting("name", 1);
+            } else if (sortOption == 2) {
+                Database.sorting("name", -1);
+            }else{
+                System.out.println("");
+                System.out.println("------------------");
+                System.out.println("Enter only from (1-2)");
+                System.out.println("------------------");
+                System.out.println("");
+                myGymManager.sorting();
+            }
+            myGymManager.endingPart("");
+        }catch (InputMismatchException e){
+            System.out.println("");
+            System.out.println("------------------");
+            System.out.println("Invalid Input");
+            System.out.println("------------------");
+            System.out.println("");
+            myGymManager.sorting();
         }
-        myGymManager.endingPart("");
-
     }
 
     public void fileSave() throws IOException {
@@ -324,6 +338,21 @@ public class MyGymManager extends Application implements GymManager {
             MyGymManager myGymManager = new MyGymManager();
             myGymManager.deleteMember();
         }catch (NumberFormatException e){
+        }
+    }
+
+    public void sortingValidate(int input){
+        try{
+            String in = String.valueOf(input);
+            System.out.println("");
+            System.out.println("--------------");
+            System.out.println("Invalid Input");
+            System.out.println("--------------");
+            System.out.println("");
+
+            MyGymManager myGymManager = new MyGymManager();
+            myGymManager.sorting();
+        }catch (InputMismatchException e){
         }
     }
 
