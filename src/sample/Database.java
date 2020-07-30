@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Database {
 
+    //method to Configure and connect to the local MongoDB
     public static DB Dbconfig(){
         try {
             MongoClient mongo = new MongoClient( "localhost" , 27017 );
@@ -19,6 +20,7 @@ public class Database {
         return null;
     }
 
+    //method to create the Objects for the Default Member in MongoDB
     public static DBObject defaultMember(DefaultMember user){
         BasicDBObjectBuilder docBuilder = BasicDBObjectBuilder.start();
 
@@ -30,6 +32,7 @@ public class Database {
         return docBuilder.get();
     }
 
+    //method to create the Objects for the Student Member in MongoDB
     public static DBObject studentMember(StudentMember user){
         BasicDBObjectBuilder docBuilder = BasicDBObjectBuilder.start();
 
@@ -42,6 +45,7 @@ public class Database {
         return docBuilder.get();
     }
 
+    //method to create the Objects for the Over60 Member in MongoDB
     public static DBObject over60Member(Over60Member user){
         BasicDBObjectBuilder docBuilder = BasicDBObjectBuilder.start();
 
@@ -54,8 +58,7 @@ public class Database {
         return docBuilder.get();
     }
 
-
-
+    //method to insert the DefaultMember data into MongoDB
     public static DBCollection DefaultMemberCreate(int id, String name,String gender,String city){
 
         DefaultMember defaultMember = new DefaultMember(id,name,"DEFAULT",gender,city);
@@ -67,6 +70,7 @@ public class Database {
         return col;
     }
 
+    //method to insert the StudentMember data into MongoDB
     public static DBCollection StudentMemberCreate(int id, String name, String schoolName,String gender,String city){
 
         StudentMember studentMember = new StudentMember(id,name,schoolName,"STUDENT",gender,city);
@@ -78,6 +82,7 @@ public class Database {
         return col;
     }
 
+    //method to insert the Over60Member data into MongoDB
     public static DBCollection Over60MemberCreate(int id, String name, int age,String gender,String city){
 
         Over60Member over60Member = new Over60Member(id,name,age,"OVER 60",gender,city);
@@ -89,6 +94,7 @@ public class Database {
         return col;
     }
 
+    //method to get the total number of registrations from MongoDB
     public static int getCount(){
         DB db = sample.Database.Dbconfig();
         DBCollection col = db.getCollection("users");
@@ -96,21 +102,7 @@ public class Database {
         return count;
     }
 
-
-    //finding the member with the ID
-    public static void findMember(int id){
-        DB db = sample.Database.Dbconfig();
-        DBCollection tableDetails = db.getCollection("users");
-        BasicDBObject queryDetails = new BasicDBObject();
-        queryDetails.put("_id",id);
-        DBCursor cursor = tableDetails.find(queryDetails);
-        DBObject oneDetails;
-        oneDetails = cursor.next();
-        String data = oneDetails.get("name").toString();
-        System.out.println(data);
-    }
-
-    //deleting a user
+    //method to delete a member from MongoDB
     public static void deleteUser(String name){
         DB db = sample.Database.Dbconfig();
         DBCollection col = db.getCollection("users");
@@ -125,6 +117,7 @@ public class Database {
         col.remove(query);
     }
 
+    //method to get the Last Registered Member's ID
     public static String getLastID(){
         DB db = sample.Database.Dbconfig();
         DBCollection col = db.getCollection("users");
@@ -140,6 +133,7 @@ public class Database {
         }
     }
 
+    //method to print all the Registered Members on the console
     public static void printAll(){
         DB db = sample.Database.Dbconfig();
         DBCollection col = db.getCollection("users");
@@ -156,6 +150,7 @@ public class Database {
         }
     }
 
+    //method to do the sorting with the name in ascending or descending order
     public static void sorting(String object, int number){
         DB db = sample.Database.Dbconfig();
         DBCollection col = db.getCollection("users");
@@ -165,14 +160,7 @@ public class Database {
         }
     }
 
-
-
-
-
-
-
-
-
+    //method to read the value from the Database with the user's Input
     public static ArrayList<String> readCustom(String key){
         DB db = sample.Database.Dbconfig();
         DBCollection col = db.getCollection("users");
@@ -184,25 +172,13 @@ public class Database {
         return nameArray;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    public static DBObject readNameTest(String name){
+    //last two methods to get the name from the user and search all the other details from MongoDB, this is used in the GUI Searching section
+    public static DBObject readNameSearch(String name){
         DB db = Database.Dbconfig();
         DBCollection col = db.getCollection("users");
         DBObject dbObject = BasicDBObjectBuilder.start().add("name", name).get();
         return dbObject;
     }
-
-
 
     public static ArrayList<String> nameSearch(DBObject object, String key){
         DB db = Database.Dbconfig();

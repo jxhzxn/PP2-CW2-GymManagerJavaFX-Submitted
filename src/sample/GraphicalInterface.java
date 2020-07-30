@@ -13,88 +13,94 @@ import java.util.NoSuchElementException;
 
 public class GraphicalInterface{
     public static void display(){
-        Stage window = new Stage();
+        Stage window = new Stage();         //setting the stage
         Scene guiScene;
         window.setTitle("Gym Manager");
 
-        TableView<DefaultMember> table;
+        TableView<DefaultMember> table;     //Initializing the tableView
 
+        //Creating a TextField
         TextField searchField = new TextField();
         searchField.setLayoutX(90);
         searchField.setLayoutY(50);
 
+        //creating a button for the search
         Button searchBtn = new Button("Search");
         searchBtn.setLayoutX(350);
         searchBtn.setLayoutY(50);
 
+        //creating a button for showAll
         Button showAllBtn = new Button("Show All");
         showAllBtn.setLayoutX(450);
         showAllBtn.setLayoutY(50);
 
+        //creating a label
         Label lbl1 = new Label();
         lbl1.setLayoutX(90);
         lbl1.setLayoutY(540);
 
-        searchField.setId("searchField");
-        searchBtn.setId("searchBtn");
-        showAllBtn.setId("searchBtn");
-        lbl1.setId("label");
 
         String remaining = String.valueOf(100-Database.getCount());
         String reg = String.valueOf(Database.getCount());
 
 
+        //Setting the label text
         lbl1.setText("Registrations : "+reg+" / 100");
 
 
-        //nameColumn
+        //creating nameColumn
         TableColumn<DefaultMember,String> nameColumn = new TableColumn<>("Full Name");
         nameColumn.setMinWidth(250);
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        //genderColumn
+        //creating genderColumn
         TableColumn<DefaultMember,String> genderColumn = new TableColumn<>("Gender");
         genderColumn.setMinWidth(100);
         genderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
 
 
-        //cityColumn
+        //creating cityColumn
         TableColumn<DefaultMember,String> cityColumn = new TableColumn<>("City");
         cityColumn.setPrefWidth(200);
         cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
 
-        //memTypeColumn
+        //creating memTypeColumn
         TableColumn<DefaultMember,String> memTypeColumn = new TableColumn<>("Member Type");
         memTypeColumn.setPrefWidth(150);
         memTypeColumn.setCellValueFactory(new PropertyValueFactory<>("memType"));
 
-
-
-
-
-
-
+        //creating the table
         table = new TableView<>();
+
+        //setting the items on the table
         table.setItems(getMember());
 
-
+        //Setting the lambda function for the search Button
         searchBtn.setOnAction(event -> {
             table.setItems(nameSearch(searchField));
         });
 
+        //setting the lambda function for the ShowAll button
         showAllBtn.setOnAction(event -> {
             searchField.clear();
             table.setItems(getMember());
         });
 
+        //setting all the columns on the table
         table.getColumns().addAll(nameColumn,genderColumn,cityColumn,memTypeColumn);
 
+        //Setting the IDs for the elements
+        searchField.setId("searchField");
+        searchBtn.setId("searchBtn");
+        showAllBtn.setId("searchBtn");
+        lbl1.setId("label");
         nameColumn.setId("column");
         genderColumn.setId("column");
         cityColumn.setId("column");
         memTypeColumn.setId("column");
         table.setId("table");
 
+        //setting the position and the width of the table
         table.setLayoutX(90);
         table.setLayoutY(120);
         table.setPrefWidth(750);
@@ -103,8 +109,10 @@ public class GraphicalInterface{
 
 
         Pane simpleSavingPane = new Pane();
-        simpleSavingPane.getChildren().addAll(table,searchBtn,searchField,showAllBtn,lbl1);
+        simpleSavingPane.getChildren().addAll(table,searchBtn,searchField,showAllBtn,lbl1);        //adding the child elements to the pane
         guiScene = new Scene(simpleSavingPane,930,630);
+
+        //linking the external CSS
         guiScene.getStylesheets().add(GraphicalInterface.class.getResource("stylesheet.css").toExternalForm());
 
         window.setScene(guiScene);
@@ -112,6 +120,7 @@ public class GraphicalInterface{
 
     }
 
+    //method to populate the Table by creating the members again by using the DefaultMembers Constructor, using the information fetched from the Database
     public static ObservableList<DefaultMember> getMember(){
         ObservableList<DefaultMember> defaultMembers = FXCollections.observableArrayList();
         ArrayList<String> name = Database.readCustom("name");
@@ -120,7 +129,6 @@ public class GraphicalInterface{
         ArrayList<String> gender = Database.readCustom("gender");
         ArrayList<String> city = Database.readCustom("city");
 
-//        Integer.parseInt(id.get(count))
         for(int count=0; count<=name.size()-1; count++){
             defaultMembers.add(new DefaultMember(Integer.parseInt(id.get(count)),name.get(count),memType.get(count),gender.get(count),city.get(count)));
         }
@@ -128,16 +136,17 @@ public class GraphicalInterface{
     }
 
 
+    //method to populate the table with the searched name
     public static ObservableList<DefaultMember> nameSearch(TextField textField){
         ObservableList<DefaultMember> defaultMembers = FXCollections.observableArrayList();
 
         try{
             String searchName = textField.getText().toUpperCase();
 
-            ArrayList<String> nameArray = Database.nameSearch(Database.readNameTest(searchName),"name");
-            ArrayList<String> memTypeArray = Database.nameSearch(Database.readNameTest(searchName),"mem_type");
-            ArrayList<String> genderArray = Database.nameSearch(Database.readNameTest(searchName),"gender");
-            ArrayList<String> cityArray = Database.nameSearch(Database.readNameTest(searchName),"city");
+            ArrayList<String> nameArray = Database.nameSearch(Database.readNameSearch(searchName),"name");
+            ArrayList<String> memTypeArray = Database.nameSearch(Database.readNameSearch(searchName),"mem_type");
+            ArrayList<String> genderArray = Database.nameSearch(Database.readNameSearch(searchName),"gender");
+            ArrayList<String> cityArray = Database.nameSearch(Database.readNameSearch(searchName),"city");
 
             for (int i=0; i<=nameArray.size()-1;i++){
                 defaultMembers.add(new DefaultMember(23,nameArray.get(i),memTypeArray.get(i),genderArray.get(i),cityArray.get(i)));

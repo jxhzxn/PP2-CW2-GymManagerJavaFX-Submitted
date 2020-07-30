@@ -1,8 +1,6 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -15,7 +13,9 @@ import static java.lang.Integer.parseInt;
 
 public class MyGymManager extends Application implements GymManager {
 
-    public int menuOption() {
+
+    //contains the primary Console menu selection options
+    public String menuOption() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println(
@@ -29,51 +29,54 @@ public class MyGymManager extends Application implements GymManager {
         );
 
         System.out.print("Choose an Option : ");
-        int option = sc.nextInt();
+        String option = sc.nextLine();
         return option;
     }
 
-    public void functionChoose(int option) throws FileNotFoundException {
+    //contains the methods which should be run after a particular choose from the user
+    public void functionChoose(String option) throws FileNotFoundException {
         MyGymManager myGymManager = new MyGymManager();
 
-        if (option == 1) {
-            myGymManager.addMember();
-        } else if (option == 2) {
-            myGymManager.deleteMember();
-        } else if (option == 3) {
-            myGymManager.printAll();
-        } else if (option == 4) {
-            myGymManager.sorting();
-        } else if (option == 5) {
-            try {
-                myGymManager.fileSave();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else if (option == 6) {
-            myGymManager.openGUI();
-        }else if(option==7){
-            System.exit(0);
-        } else{
-            try{
-                System.out.println("Invalid Input");
-                System.out.println("-----------------------------");
+        try{
+            int opt = Integer.parseInt(option);
+
+            if (opt == 1) {
+                myGymManager.addMember();
+            } else if (opt == 2) {
+                myGymManager.deleteMember();
+            } else if (opt == 3) {
+                myGymManager.printAll();
+            } else if (opt == 4) {
+                myGymManager.sorting();
+            } else if (opt == 5) {
+                try {
+                    myGymManager.fileSave();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (opt == 6) {
+                myGymManager.openGUI();
+            }else if(opt==7){
+                System.exit(0);
+            }else{
+                System.out.println("");
+                System.out.println("------------------");
+                System.out.println("Enter only from (1-7)");
+                System.out.println("------------------");
                 System.out.println("");
                 myGymManager.functionChoose(myGymManager.menuOption());
-            }catch (InputMismatchException | FileNotFoundException e){
-                System.out.println("Invalid Input");
-                System.out.println("-----------------------------");
-                System.out.println("");
-                try {
-                    myGymManager.functionChoose(myGymManager.menuOption());
-                } catch (InputMismatchException fileNotFoundException) {
-                    myGymManager.functionChoose(myGymManager.menuOption());
-                }
             }
-
+        }catch (NumberFormatException e){
+            System.out.println("");
+            System.out.println("------------------");
+            System.out.println("Invalid Input");
+            System.out.println("------------------");
+            System.out.println("");
+            myGymManager.functionChoose(myGymManager.menuOption());
         }
     }
 
+    //method to add a new Member
     public void addMember() throws FileNotFoundException {
         MyGymManager myGymManager = new MyGymManager();
         Scanner sc = new Scanner(System.in);
@@ -251,8 +254,13 @@ public class MyGymManager extends Application implements GymManager {
         String answer = strInput.nextLine();
         System.out.println("");
         if(answer.equals("y")){
-            myGymManager.menuOption();
+            try {
+                myGymManager.functionChoose(myGymManager.menuOption());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }else if(answer.equals("n")){
+            System.out.println("GoodBye :) ");
             System.exit(0);
         }else{
             System.out.println("Invalid input");

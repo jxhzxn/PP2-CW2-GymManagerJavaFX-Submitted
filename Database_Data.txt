@@ -78,3 +78,21 @@ Exported Data from the Database
  Member Type : STUDENT 
  City : NEW JERSEY
 
+[14]  	
+ Full Name : ERLICH 
+ Gender : USA 
+ Member Type : DEFAULT 
+ City : USA
+
+[15]  	
+ Full Name : SHUHAIB 
+ Gender : COLOMBO 
+ Member Type : OVER 60 
+ City : COLOMBO
+
+[16]  	
+ Full Name : EINSTEIN 
+ Gender : ENGLAND 
+ Member Type : OVER 60 
+ City : ENGLAND
+
