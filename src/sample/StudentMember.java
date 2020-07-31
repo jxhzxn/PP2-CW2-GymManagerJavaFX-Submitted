@@ -19,5 +19,4 @@ public class StudentMember extends DefaultMember{
     public void setSchool(String schoolName){
         this.schoolName = schoolName;
     }
-
 }

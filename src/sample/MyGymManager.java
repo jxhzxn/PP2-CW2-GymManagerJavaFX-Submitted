@@ -57,6 +57,7 @@ public class MyGymManager extends Application implements GymManager {
                 }
             } else if (opt == 6) {
                 myGymManager.openGUI();
+                System.exit(0);
             }else if(opt==7){
                 System.out.println("");
                 System.out.println("GoodBye :)");
@@ -124,8 +125,6 @@ public class MyGymManager extends Application implements GymManager {
                     System.out.print("City : ");
                     String city = cityInput.nextLine();
                     myGymManager.strCheck(city);
-
-
 
                     Database.DefaultMemberCreate(idVal, name.toUpperCase(),gender.toUpperCase(),city.toUpperCase());
                     myGymManager.endingPart("Registration Successful");
@@ -220,7 +219,7 @@ public class MyGymManager extends Application implements GymManager {
         myGymManager.deleteMemberValidate(name);
         Database.deleteUser(name);
         myGymManager.endingPart("");
-//        System.out.println(name + " is Deleted from the Registration List");
+        //System.out.println(name + " is Deleted from the Registration List");
     }
 
     public void printAll() {
@@ -276,11 +275,8 @@ public class MyGymManager extends Application implements GymManager {
 
     public void fileSave() throws IOException {
         MyGymManager myGymManager = new MyGymManager();
-
         FileSave.fileWrite();
         myGymManager.endingPart("[File Exported Successfully]");
-
-
     }
 
     public void openGUI() {
@@ -331,9 +327,11 @@ public class MyGymManager extends Application implements GymManager {
         }
     }
 
-    public void intCheck(int input){
+    public void intCheck(int input) throws FileNotFoundException {
         try{
             String in = String.valueOf(input);
+
+        }catch (NumberFormatException e){
             System.out.println("");
             System.out.println("--------------");
             System.out.println("Invalid Input");
@@ -342,7 +340,6 @@ public class MyGymManager extends Application implements GymManager {
 
             MyGymManager myGymManager = new MyGymManager();
             myGymManager.addMember();
-        }catch (NumberFormatException | FileNotFoundException e){
         }
     }
 
@@ -360,10 +357,6 @@ public class MyGymManager extends Application implements GymManager {
         }catch (NumberFormatException e){
         }
     }
-
-
-
-
 }
 
 

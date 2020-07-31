@@ -196,11 +196,6 @@ public class Database {
 
 
 
-
-
-
-
-
     //last two methods to get the name from the user and search all the other details from MongoDB, this is used in the GUI Searching section
     public static DBObject readNameSearch(String name){
         DB db = Database.Dbconfig();
@@ -222,16 +217,4 @@ public class Database {
         }
         return foundNames;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
