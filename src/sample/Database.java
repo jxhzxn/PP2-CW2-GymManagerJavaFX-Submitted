@@ -200,7 +200,6 @@ public class Database {
     public static DBObject readNameSearch(String name){
         DB db = Database.Dbconfig();
         DBCollection col = db.getCollection("users");
-//        DBObject dbObject = BasicDBObjectBuilder.start().add("name",name).get();
         DBObject dbObject = new BasicDBObject("name", name).append("name", new BasicDBObject("$regex", String.valueOf(name)));
         return dbObject;
     }

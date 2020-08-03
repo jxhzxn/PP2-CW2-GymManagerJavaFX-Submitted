@@ -88,6 +88,7 @@ public class GraphicalInterface{
             table.setItems(getMember());
         });
 
+
         //setting all the columns on the table
         table.getColumns().addAll(nameColumn,genderColumn,cityColumn,memTypeColumn);
 

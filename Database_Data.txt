@@ -1,86 +1,116 @@
 Exported Data from the Database
 -------------------------------------
 [1]  	
- Full Name : MIKKEL 
- Gender : WINDEN 
- Member Type : STUDENT 
- City : WINDEN
+ Full Name : NADIL PADMAPERUMA 
+ Gender : MAHARAGAMA 
+ Member Type : DEFAULT 
+ City : MAHARAGAMA
 
 [2]  	
- Full Name : JAHZAN 
- Gender : DEHIWALA 
- Member Type : DEFAULT 
- City : DEHIWALA
+ Full Name : CHANDIRA GUNATHILAKE 
+ Gender : MATHTHEGODA 
+ Member Type : STUDENT 
+ City : MATHTHEGODA
 
 [3]  	
- Full Name : CHANDIRA GUNATHILEKA 
- Gender : COLOMBO 
- Member Type : DEFAULT 
- City : COLOMBO
+ Full Name : DEVAN ANDRADI 
+ Gender : MOUNT LAVINIA 
+ Member Type : OVER 60 
+ City : MOUNT LAVINIA
 
 [4]  	
- Full Name : JAHZAN 
- Gender : MOUNT 
+ Full Name : KALANI LIYANAGAMA 
+ Gender : MATARA 
  Member Type : DEFAULT 
- City : MOUNT
+ City : MATARA
 
 [5]  	
- Full Name : JAHZAN 
- Gender : KANDY 
- Member Type : STUDENT 
- City : KANDY
+ Full Name : LUCHITHA PAQCUAL 
+ Gender : PANNIPITIYA 
+ Member Type : DEFAULT 
+ City : PANNIPITIYA
 
 [6]  	
- Full Name : GUGSI PORAVI 
- Gender : ANGODA 
+ Full Name : INDUWARA MAPALAGAMA 
+ Gender : WELLAMPITIYA 
  Member Type : OVER 60 
- City : ANGODA
+ City : WELLAMPITIYA
 
 [7]  	
- Full Name : ULRICH 
- Gender : WINDEN 
+ Full Name : NENUKA FERNANDO 
+ Gender : PANADURA 
  Member Type : STUDENT 
- City : WINDEN
+ City : PANADURA
 
 [8]  	
- Full Name : CLAY 
- Gender : NEW JERSEY 
+ Full Name : SAHAS KULASEKARA 
+ Gender : ALUTHGAMA 
  Member Type : STUDENT 
- City : NEW JERSEY
+ City : ALUTHGAMA
 
 [9]  	
- Full Name : ERLICH 
- Gender : USA 
+ Full Name : KAVEESHA FERNANDO 
+ Gender : KALUTARA 
  Member Type : DEFAULT 
- City : USA
+ City : KALUTARA
 
 [10]  	
- Full Name : SHUHAIB 
- Gender : COLOMBO 
- Member Type : OVER 60 
- City : COLOMBO
+ Full Name : SACHINI PERERA 
+ Gender : BAMBALAPITIYA 
+ Member Type : DEFAULT 
+ City : BAMBALAPITIYA
 
 [11]  	
- Full Name : EINSTEIN 
- Gender : ENGLAND 
+ Full Name : ABISHEK RATHNAYAKE 
+ Gender : KANDY 
  Member Type : OVER 60 
- City : ENGLAND
+ City : KANDY
 
 [12]  	
- Full Name : 234567 
- Gender : QWER 
- Member Type : DEFAULT 
- City : QWER
+ Full Name : RASHMI SOORIYABANDARA 
+ Gender : COLOMBO 
+ Member Type : STUDENT 
+ City : COLOMBO
 
 [13]  	
- Full Name : AABITH 
- Gender : KALUBOWILA 
+ Full Name : HASINI DISSANAYAKE 
+ Gender : GAMPAHA 
  Member Type : STUDENT 
- City : KALUBOWILA
+ City : GAMPAHA
 
 [14]  	
- Full Name : NADHEE 
+ Full Name : YEHENI DAHANAYAKE 
+ Gender : GALLE 
+ Member Type : OVER 60 
+ City : GALLE
+
+[15]  	
+ Full Name : HASHINI DE SILVA 
+ Gender : RATMALANA 
+ Member Type : STUDENT 
+ City : RATMALANA
+
+[16]  	
+ Full Name : JAHZAN AHAMED 
  Gender : MOUNT LAVINIA 
- Member Type : DEFAULT 
+ Member Type : OVER 60 
  City : MOUNT LAVINIA
+
+[17]  	
+ Full Name : ERLICH BACHMAN 
+ Gender : NEW YORK 
+ Member Type : DEFAULT 
+ City : NEW YORK
+
+[18]  	
+ Full Name : CLAY JENSEN 
+ Gender : COLOMBO 
+ Member Type : STUDENT 
+ City : COLOMBO
+
+[19]  	
+ Full Name : REGINA 
+ Gender : CALIFORNIA 
+ Member Type : OVER 60 
+ City : CALIFORNIA
 
